@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test - Prairies Africa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-gray-900">🧪 Backend API Test Page</h1>
+    
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+      <p class="text-sm">
+        <strong>⚠️ Make sure your Django server is running!</strong><br>
+        Open PowerShell in backend folder and run: <code class="bg-yellow-200 px-2 py-1">.venv\Scripts\activate</code> then <code class="bg-yellow-200 px-2 py-1">python manage.py runserver</code>
+      </p>
+    </div>
+
+    <!-- Test 1: Create Booking -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">🎫 Test 1: Create a Booking</h2>
+      <button onclick="testCreateBooking()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Click to Create Test Booking
+      </button>
+      <pre id="result-booking" class="mt-4 bg-gray-50 p-4 rounded text-xs overflow-auto max-h-64"></pre>
+    </div>
+
+    <!-- Test 2: Get Bank Details -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">🏦 Test 2: Get Bank Account Details</h2>
+      <button onclick="testBankDetails()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Click to Get Bank Details
+      </button>
+      <pre id="result-bank" class="mt-4 bg-gray-50 p-4 rounded text-xs overflow-auto max-h-64"></pre>
+    </div>
+
+    <!-- Test 3: Check Payment Status -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">💳 Test 3: Check Payment Status</h2>
+      <input type="number" id="booking-id" placeholder="Booking ID" class="border rounded px-3 py-2 mr-2" value="1">
+      <button onclick="testPaymentStatus()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+        Click to Check Status
+      </button>
+      <pre id="result-status" class="mt-4 bg-gray-50 p-4 rounded text-xs overflow-auto max-h-64"></pre>
+    </div>
+
+    <!-- Test 4: Get Booking Details -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">📋 Test 4: Get Booking Details</h2>
+      <input type="number" id="booking-id-2" placeholder="Booking ID" class="border rounded px-3 py-2 mr-2" value="1">
+      <button onclick="testGetBooking()" class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700">
+        Click to Get Booking
+      </button>
+      <pre id="result-get" class="mt-4 bg-gray-50 p-4 rounded text-xs overflow-auto max-h-64"></pre>
+    </div>
+
+  </div>
+
+  <script>
+    const API_BASE = 'https://prairies-backend.onrender.com';
+
+    function showResult(elementId, data, error = false) {
+      const el = document.getElementById(elementId);
+      if (error) {
+        el.textContent = '❌ ERROR:\n' + JSON.stringify(data, null, 2);
+        el.className = el.className.replace('bg-gray-50', 'bg-red-50');
+      } else {
+        el.textContent = '✅ SUCCESS:\n' + JSON.stringify(data, null, 2);
+        el.className = el.className.replace('bg-red-50', 'bg-green-50');
+      }
+    }
+
+    async function testCreateBooking() {
+      const el = document.getElementById('result-booking');
+      el.textContent = '⏳ Creating booking...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/bookings/create/`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customer: {
+              name: 'Test Customer',
+              email: 'test@example.com',
+              phone: '+263 77 123 4567',
+              customer_notes: 'This is a test booking'
+            },
+            package_id: 'TEST001',
+            package_title: 'Test Safari Package',
+            package_price: '1500.00',
+            number_of_people: 2,
+            preferred_date: '2025-12-25',
+            special_requests: 'Window seats please',
+            payment_method: 'bank_transfer'
+          })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          showResult('result-booking', data);
+          alert('✅ Booking created! Reference: ' + data.reference_number);
+        } else {
+          showResult('result-booking', data, true);
+        }
+      } catch (error) {
+        showResult('result-booking', { message: error.message, hint: 'Is the Django server running?' }, true);
+      }
+    }
+
+    async function testBankDetails() {
+      const el = document.getElementById('result-bank');
+      el.textContent = '⏳ Getting bank details...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/payments/bank-details/`, {
+          method: 'POST'
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          showResult('result-bank', data);
+        } else {
+          showResult('result-bank', data, true);
+        }
+      } catch (error) {
+        showResult('result-bank', { message: error.message, hint: 'Is the Django server running?' }, true);
+      }
+    }
+
+    async function testPaymentStatus() {
+      const bookingId = document.getElementById('booking-id').value;
+      const el = document.getElementById('result-status');
+      el.textContent = '⏳ Checking payment status...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/payments/payment-status/${bookingId}/`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          showResult('result-status', data);
+        } else {
+          showResult('result-status', data, true);
+        }
+      } catch (error) {
+        showResult('result-status', { message: error.message, hint: 'Is the Django server running?' }, true);
+      }
+    }
+
+    async function testGetBooking() {
+      const bookingId = document.getElementById('booking-id-2').value;
+      const el = document.getElementById('result-get');
+      el.textContent = '⏳ Getting booking details...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/bookings/${bookingId}/`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          showResult('result-get', data);
+        } else {
+          showResult('result-get', data, true);
+        }
+      } catch (error) {
+        showResult('result-get', { message: error.message, hint: 'Is the Django server running?' }, true);
+      }
+    }
+  </script>
+</body>
+</html>

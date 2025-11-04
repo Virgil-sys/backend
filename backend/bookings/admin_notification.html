@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #f59e0b 0%, #16a34a 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; }
+        .booking-card { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
+        .label { font-weight: bold; color: #6b7280; }
+        .value { color: #111827; }
+        .status-badge { display: inline-block; padding: 5px 15px; background: #fef3c7; color: #92400e; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .footer { background: #f9fafb; padding: 20px; text-align: center; border-radius: 0 0 10px 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0;">New Booking Received!</h1>
+            <p style="margin: 5px 0;">Praires Africa Booking System</p>
+        </div>
+        
+        <div class="content">
+            <div class="booking-card">
+                <h2 style="margin-top: 0; color: #92400e;">Booking Reference: {{ booking.reference_number }}</h2>
+                <p style="margin: 5px 0;"><span class="status-badge">{{ booking.get_status_display|upper }}</span></p>
+            </div>
+            
+            <h3 style="color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px;">Customer Details</h3>
+            <div class="info-row">
+                <span class="label">Name:</span>
+                <span class="value">{{ booking.customer.name }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Email:</span>
+                <span class="value">{{ booking.customer.email }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Phone:</span>
+                <span class="value">{{ booking.customer.phone }}</span>
+            </div>
+            
+            <h3 style="color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px; margin-top: 25px;">Booking Details</h3>
+            <div class="info-row">
+                <span class="label">Package:</span>
+                <span class="value">{{ booking.package_title }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Package ID:</span>
+                <span class="value">{{ booking.package_id }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Number of People:</span>
+                <span class="value">{{ booking.number_of_people }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Preferred Date:</span>
+                <span class="value">{{ booking.preferred_date|default:'Not specified' }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Special Requests:</span>
+                <span class="value">{{ booking.special_requests|default:'None' }}</span>
+            </div>
+            
+            <h3 style="color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px; margin-top: 25px;">Payment Information</h3>
+            <div class="info-row">
+                <span class="label">Package Price:</span>
+                <span class="value">${{ booking.package_price }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Total Amount:</span>
+                <span class="value" style="font-size: 1.2em; font-weight: bold; color: #f59e0b;">${{ booking.total_amount }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Payment Method:</span>
+                <span class="value">{{ booking.get_payment_method_display }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Payment Status:</span>
+                <span class="value"><span class="status-badge">{{ booking.get_status_display }}</span></span>
+            </div>
+            <div class="info-row">
+                <span class="label">Payment Deadline:</span>
+                <span class="value">{{ booking.payment_deadline|date:"Y-m-d H:i"|default:'Not set' }}</span>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #fef3c7; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; font-size: 14px; color: #92400e;">
+                    <strong>Action Required:</strong> Review this booking in the admin panel and confirm payment once received.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p style="margin: 5px 0; color: #6b7280; font-size: 12px;">
+                This is an automated notification from Praires Africa Booking System
+            </p>
+            <p style="margin: 5px 0; color: #6b7280; font-size: 12px;">
+                Booking created at: {{ booking.created_at|date:"Y-m-d H:i:s" }}
+            </p>
+        </div>
+    </div>
+</body>
+</html>

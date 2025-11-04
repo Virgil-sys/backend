@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Package — Prairies Africa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes fadeUp { from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
+    .animate-fade-up { animation: fadeUp .45s ease both; }
+    .input { @apply mt-1 block w-full rounded-md border border-gray-200 px-3 py-2; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo.svg" alt="Prairies Africa" class="h-10 w-auto">
+        <span class="font-bold text-xl hidden sm:inline"></span>
+      </a>
+      <nav class="space-x-4">
+        <a href="packages.html" class="text-gray-600 hover:text-amber-600">Packages</a>
+        <a href="index.html#contact" class="text-gray-600 hover:text-amber-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Small hero -->
+  <section class="bg-amber-50 border-b">
+    <div class="container mx-auto px-4 py-6">
+      <h2 id="pkg-hero" class="text-2xl font-semibold text-gray-900 animate-fade-up">
+        Book: <span id="pkg-title">Loading package…</span>
+      </h2>
+      <p class="text-gray-600 mt-1 animate-fade-up" style="animation-delay:.06s">Complete your details below. We will confirm within 24 hours.</p>
+    </div>
+  </section>
+
+  <main class="container mx-auto px-4 py-10">
+    <!-- Package summary -->
+    <div id="pkg-card" class="max-w-3xl mx-auto bg-white rounded-lg shadow p-6 mb-6">
+      <h1 id="pkg-title-2" class="text-2xl font-bold mb-2">Loading package…</h1>
+      <div id="pkg-meta" class="text-sm text-gray-600 mb-2"></div>
+      <div id="pkg-price" class="text-amber-600 font-bold text-lg mb-4"></div>
+      <p id="pkg-desc" class="text-gray-700"></p>
+    </div>
+
+    <!-- Booking form -->
+    <form id="booking-form" class="max-w-3xl mx-auto bg-white rounded-lg shadow overflow-hidden" autocomplete="on" novalidate>
+      <input type="hidden" name="packageId" id="packageId">
+      <input type="hidden" name="packageTitle" id="packageTitle">
+      <input type="hidden" name="packagePrice" id="packagePrice">
+
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-amber-500 to-green-600 text-white p-6 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+          <i class="fas fa-ticket-alt"></i>
+        </div>
+        <div>
+          <div class="text-sm opacity-90">You're booking</div>
+          <div id="form-pkg-title" class="text-lg font-semibold" aria-live="polite">Loading package…</div>
+        </div>
+        <div class="ml-auto text-right">
+          <div id="form-pkg-price" class="font-bold text-white/90">—</div>
+          <div class="text-xs opacity-80">Secure your spot</div>
+        </div>
+      </div>
+
+      <!-- Form body -->
+      <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left column: inputs -->
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-user text-amber-500"></i>
+              Full name
+            </span>
+            <input required id="name" name="name" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300" placeholder="Your full name" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-envelope text-amber-500"></i>
+              Email
+            </span>
+            <input required id="email" name="email" type="email" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300" placeholder="you@domain.com" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-phone text-amber-500"></i>
+              Phone
+            </span>
+            <input required id="phone" name="phone" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300" placeholder="+263 77 123 4567" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-users text-amber-500"></i>
+              Number of people
+            </span>
+            <input required id="pax" name="pax" type="number" min="1" value="1" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300" />
+          </label>
+
+          <!-- Additional Activity Section -->
+          <div class="block">
+            <label class="text-sm text-gray-700 flex items-center gap-2 mb-2">
+              <i class="fas fa-plus-circle text-amber-500"></i>
+              Add Optional Activity
+            </label>
+            <select id="additional-activity" name="additional_activity" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300">
+              <option value="">None</option>
+              <option value="sunset-cruise|Sunset Cruise on Zambezi|45">Sunset Cruise on Zambezi - $45</option>
+              <option value="elephant-ride|Elephant Back Safari|80">Elephant Back Safari - $80</option>
+              <option value="bungee-jump|Victoria Falls Bungee Jump|160">Victoria Falls Bungee Jump - $160</option>
+              <option value="white-water|White Water Rafting|120">White Water Rafting - $120</option>
+              <option value="village-tour|Cultural Village Tour|35">Cultural Village Tour - $35</option>
+            </select>
+            <p class="text-xs text-gray-500 mt-1">Add an extra experience to your package</p>
+          </div>
+
+          <!-- Dynamic Total Display -->
+          <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-700">Base Package:</span>
+              <span id="base-total" class="text-gray-900 font-semibold">$0</span>
+            </div>
+            <div id="additional-cost-row" class="hidden flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-700">Additional Activity:</span>
+              <span id="additional-total" class="text-gray-900 font-semibold">$0</span>
+            </div>
+            <div class="flex justify-between items-center pt-2 border-t-2 border-amber-300">
+              <span class="text-base font-bold text-gray-900">Total Cost:</span>
+              <span id="grand-total" class="text-xl font-bold text-amber-600">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: date, notes and CTA -->
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-calendar-alt text-amber-500"></i>
+              Preferred date
+            </span>
+            <input id="date" name="date" type="date" class="input bg-white border-gray-200 focus:ring-2 focus:ring-amber-300" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm text-gray-700 flex items-center gap-2">
+              <i class="fas fa-sticky-note text-amber-500"></i>
+              Special requests
+            </span>
+            <textarea id="notes" name="notes" rows="4" class="mt-1 block w-full rounded-md border border-gray-200 px-3 py-2" placeholder="Dietary needs, mobility, celebrations..."></textarea>
+          </label>
+
+          <div class="pt-2">
+            <button id="submit-booking" type="button" class="w-full bg-amber-600 hover:bg-amber-700 text-white px-4 py-3 rounded font-medium shadow transition transform hover:-translate-y-0.5">
+              <i class="fas fa-paper-plane mr-2"></i> <span id="btn-text">Book Now</span>
+            </button>
+
+            <div class="mt-3 flex items-center justify-between">
+              <a href="packages.html" class="text-sm text-gray-500">Back to packages</a>
+              <div id="msg" class="text-sm" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success Modal (shown after booking) -->
+    <div id="success-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 overflow-hidden">
+        <div class="bg-green-600 text-white p-6">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-4xl">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold">Booking Confirmed!</h2>
+              <p class="opacity-90">Your safari adventure awaits</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-6 space-y-6">
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
+            <p class="font-semibold text-amber-900">Your Booking Reference</p>
+            <p id="ref-number" class="text-3xl font-bold text-amber-600 my-2">BK-XXXXX</p>
+            <p class="text-sm text-amber-800">Save this reference number! You'll need it for payment.</p>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="font-semibold text-gray-900">Next Steps:</h3>
+            <div class="space-y-2 text-sm text-gray-700">
+              <div class="flex gap-3">
+                <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <span class="text-amber-600 font-bold">1</span>
+                </div>
+                <p><strong>Payment:</strong> Transfer the amount to our bank account (details sent to your email)</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <span class="text-amber-600 font-bold">2</span>
+                </div>
+                <p><strong>Proof:</strong> Upload your payment receipt (link in email)</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <span class="text-amber-600 font-bold">3</span>
+                </div>
+                <p><strong>Confirmation:</strong> We'll verify within 24 hours and confirm your tour!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded p-4">
+            <p class="text-sm text-gray-600">
+              <i class="fas fa-envelope mr-2 text-amber-500"></i>
+              Check your email (<span id="customer-email" class="font-semibold">---</span>) for full details including bank account information.
+            </p>
+          </div>
+
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-4">
+            <p class="text-sm text-green-800">
+              <i class="fas fa-check-circle mr-2"></i>
+              <strong>✅ Booking Successful!</strong> A confirmation email has been sent to your inbox.
+            </p>
+          </div>
+
+          <button id="view-status" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded font-medium mb-2">
+            <i class="fas fa-eye mr-2"></i>
+            View Payment Status
+          </button>
+          
+          <button id="close-modal" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-900 py-3 rounded font-medium">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center text-sm">© 2025 PrairiesAfrica.Inc</div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/263776930966?text=Hi,%20I'm%20interested%20in%20this%20package" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg z-50 transition-transform hover:scale-110" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+  (function(){
+    // ============================================
+    // 🔧 BACKEND API CONFIGURATION
+    // ============================================
+    const API_BASE_URL = 'https://prairies-backend.onrender.com';
+    
+    // ============================================
+    // 📦 Package Info from URL
+    // ============================================
+    const params = new URLSearchParams(location.search);
+    const pkgId = params.get('id') || params.get('pkgId') || '';
+    const title = params.get('title') ? decodeURIComponent(params.get('title')) : (params.get('name') ? decodeURIComponent(params.get('name')) : '');
+    const price = params.get('price') || params.get('cost') || '';
+    const duration = params.get('duration') || '';
+    const desc = params.get('desc') ? decodeURIComponent(params.get('desc')) : '';
+
+    // UI refs
+    const pkgTitleEl = document.getElementById('pkg-title');
+    const pkgTitleEl2 = document.getElementById('pkg-title-2');
+    const pkgMetaEl = document.getElementById('pkg-meta');
+    const pkgPriceEl = document.getElementById('pkg-price');
+    const pkgDescEl = document.getElementById('pkg-desc');
+    const packageIdInput = document.getElementById('packageId');
+    const packageTitleInput = document.getElementById('packageTitle');
+    const packagePriceInput = document.getElementById('packagePrice');
+    const msg = document.getElementById('msg');
+    const formPkgTitle = document.getElementById('form-pkg-title');
+    const formPkgPrice = document.getElementById('form-pkg-price');
+    const btnText = document.getElementById('btn-text');
+
+    // Populate UI
+    if (!title && !pkgId) {
+      pkgTitleEl.textContent = 'No package specified';
+      pkgTitleEl2.textContent = 'No package specified';
+      pkgDescEl.textContent = 'Go back to the packages page and click "Book Now" on a package.';
+      if (formPkgTitle) formPkgTitle.textContent = 'No package specified';
+      if (formPkgPrice) formPkgPrice.textContent = '—';
+    } else {
+      const displayTitle = title || 'Selected package';
+      pkgTitleEl.textContent = displayTitle;
+      pkgTitleEl2.textContent = displayTitle;
+      pkgMetaEl.textContent = duration ? duration : '';
+      pkgPriceEl.textContent = price ? `From $${price}` : '';
+      pkgDescEl.textContent = desc;
+      packageIdInput.value = pkgId;
+      packageTitleInput.value = displayTitle;
+      packagePriceInput.value = price;
+
+      if (formPkgTitle) formPkgTitle.textContent = displayTitle;
+      if (formPkgPrice) formPkgPrice.textContent = price ? `From $${price}` : '—';
+    }
+
+    // ============================================
+    // 💰 Dynamic Total Calculation
+    // ============================================
+    function updateTotals() {
+      const basePrice = parseFloat(packagePriceInput.value) || 0;
+      const numPeople = parseInt(document.getElementById('pax').value) || 1;
+      const additionalSelect = document.getElementById('additional-activity');
+      const selectedValue = additionalSelect.value;
+      
+      let additionalPrice = 0;
+      if (selectedValue) {
+        const parts = selectedValue.split('|');
+        additionalPrice = parseFloat(parts[2]) || 0;
+      }
+
+      const baseTotal = basePrice * numPeople;
+      const additionalTotal = additionalPrice * numPeople;
+      const grandTotal = baseTotal + additionalTotal;
+
+      document.getElementById('base-total').textContent = `$${baseTotal.toFixed(2)}`;
+      document.getElementById('additional-total').textContent = `$${additionalTotal.toFixed(2)}`;
+      document.getElementById('grand-total').textContent = `$${grandTotal.toFixed(2)}`;
+
+      // Show/hide additional cost row
+      const additionalCostRow = document.getElementById('additional-cost-row');
+      if (additionalPrice > 0) {
+        additionalCostRow.classList.remove('hidden');
+      } else {
+        additionalCostRow.classList.add('hidden');
+      }
+    }
+
+    // Update totals on input change
+    document.getElementById('pax').addEventListener('input', updateTotals);
+    document.getElementById('additional-activity').addEventListener('change', updateTotals);
+    
+    // Initial total calculation
+    updateTotals();
+
+    // ============================================
+    // 💬 Message Helper
+    // ============================================
+    function showMessage(text, kind) {
+      msg.textContent = text;
+      msg.className = 'text-sm ' + (kind === 'error' ? 'text-red-600' : 'text-green-700');
+    }
+
+    // ============================================
+    // ✅ Validation
+    // ============================================
+    function validate() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      
+      if (!name) return 'Please enter your name';
+      if (!email || !email.includes('@')) return 'Please enter a valid email';
+      if (!phone) return 'Please enter your phone number';
+      if (!packagePriceInput.value) return 'Package price is missing';
+      
+      return '';
+    }
+
+    // ============================================
+    // 🚀 Submit Booking to Django Backend
+    // ============================================
+    async function submitBooking() {
+      const error = validate();
+      if (error) {
+        showMessage(error, 'error');
+        return;
+      }
+
+      // Get additional activity data
+      const additionalSelect = document.getElementById('additional-activity');
+      const selectedValue = additionalSelect.value;
+      let additionalActivityId = '';
+      let additionalActivityTitle = '';
+      let additionalActivityPrice = 0;
+      
+      if (selectedValue) {
+        const parts = selectedValue.split('|');
+        additionalActivityId = parts[0] || '';
+        additionalActivityTitle = parts[1] || '';
+        additionalActivityPrice = parseFloat(parts[2]) || 0;
+      }
+
+      // Prepare data in Django API format
+      const bookingData = {
+        customer: {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          customer_notes: document.getElementById('notes').value.trim()
+        },
+        package_id: packageIdInput.value || 'ONLINE-' + Date.now(),
+        package_title: packageTitleInput.value,
+        package_price: packagePriceInput.value,
+        additional_activity_id: additionalActivityId,
+        additional_activity_title: additionalActivityTitle,
+        additional_activity_price: additionalActivityPrice,
+        number_of_people: Number(document.getElementById('pax').value) || 1,
+        preferred_date: document.getElementById('date').value || null,
+        special_requests: document.getElementById('notes').value.trim(),
+        payment_method: 'bank_transfer'
+      };
+
+      // Show loading
+      btnText.textContent = 'Sending...';
+      document.getElementById('submit-booking').disabled = true;
+      showMessage('Creating your booking...', 'success');
+
+      try {
+        // Call Django API
+        const response = await fetch(`${API_BASE_URL}/api/bookings/create/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(bookingData)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => null);
+          throw new Error(errorData?.detail || `Server error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        
+        // Show success modal with booking details
+        showSuccessModal(result);
+        
+      } catch (error) {
+        console.error('Booking error:', error);
+        showMessage(`Error: ${error.message}. Make sure backend is running!`, 'error');
+      } finally {
+        btnText.textContent = 'Book Now';
+        document.getElementById('submit-booking').disabled = false;
+      }
+    }
+
+    // ============================================
+    // 🎉 Success Modal
+    // ============================================
+    let currentBookingId = null;
+    
+    function showSuccessModal(bookingData) {
+      currentBookingId = bookingData.id;
+      document.getElementById('ref-number').textContent = bookingData.reference_number || 'N/A';
+      document.getElementById('customer-email').textContent = bookingData.customer?.email || 'your email';
+      document.getElementById('success-modal').classList.remove('hidden');
+      
+      // Clear form
+      document.getElementById('booking-form').reset();
+      updateTotals();
+      
+      // Auto-redirect to payment status after 3 seconds
+      setTimeout(() => {
+        if (currentBookingId) {
+          window.location.href = `payment-status.html?id=${currentBookingId}`;
+        }
+      }, 3000);
+    }
+
+    // ============================================
+    // 🔘 Event Listeners
+    // ============================================
+    document.getElementById('submit-booking').addEventListener('click', submitBooking);
+
+    document.getElementById('view-status').addEventListener('click', function() {
+      if (currentBookingId) {
+        window.location.href = `payment-status.html?id=${currentBookingId}`;
+      }
+    });
+
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('success-modal').classList.add('hidden');
+      window.location.href = 'packages.html';
+    });
+
+    // Submit on Enter
+    document.getElementById('booking-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      submitBooking();
+    });
+  })();
+  </script>
+</body>
+</html>

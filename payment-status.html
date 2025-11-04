@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Status - Praires Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse-animation { animation: pulse 2s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spin-animation { animation: spin 1s linear infinite; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white sticky top-0 z-40 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.svg" alt="Praires Africa" class="h-10 w-auto">
+                <span class="font-bold text-xl hidden sm:inline">Praires Africa</span>
+            </a>
+            <div class="hidden md:flex gap-3">
+                <a href="packages.html" class="text-gray-700 hover:text-amber-600">Packages</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-amber-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Loading State -->
+            <div id="loading-state" class="bg-white rounded-lg shadow p-8 text-center">
+                <i class="fas fa-spinner spin-animation text-4xl text-amber-600 mb-4"></i>
+                <p class="text-gray-600">Loading your booking status...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="hidden bg-white rounded-lg shadow p-8">
+                <div class="text-center mb-6">
+                    <i class="fas fa-exclamation-circle text-5xl text-red-500 mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Booking Not Found</h2>
+                    <p class="text-gray-600" id="error-message">We couldn't find your booking. Please check your booking ID.</p>
+                </div>
+                <div class="flex justify-center gap-3">
+                    <a href="packages.html" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-medium">
+                        Browse Packages
+                    </a>
+                    <a href="index.html#contact" class="bg-gray-200 hover:bg-gray-300 text-gray-900 px-6 py-3 rounded-lg font-medium">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Booking Details -->
+            <div id="booking-details" class="hidden">
+                <!-- Status Banner -->
+                <div id="status-banner" class="rounded-lg shadow-lg mb-6 overflow-hidden">
+                    <!-- Will be dynamically filled -->
+                </div>
+
+                <!-- Booking Information Card -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fas fa-info-circle text-amber-600"></i>
+                        Booking Details
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Reference Number:</span>
+                            <span id="ref-num" class="text-gray-900 font-bold">—</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Package:</span>
+                            <span id="package-name" class="text-gray-900">—</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Number of People:</span>
+                            <span id="num-people" class="text-gray-900">—</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Preferred Date:</span>
+                            <span id="pref-date" class="text-gray-900">—</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Additional Activity:</span>
+                            <span id="additional-activity" class="text-gray-900">None</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="text-gray-600 font-medium text-lg">Total Amount:</span>
+                            <span id="total-amount" class="text-amber-600 font-bold text-xl">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Information -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fas fa-user text-amber-600"></i>
+                        Customer Information
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Name:</span>
+                            <span id="customer-name" class="text-gray-900">—</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600 font-medium">Email:</span>
+                            <span id="customer-email" class="text-gray-900">—</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="text-gray-600 font-medium">Phone:</span>
+                            <span id="customer-phone" class="text-gray-900">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Instructions (shown only if pending) -->
+                <div id="payment-instructions" class="hidden bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg shadow p-6 mb-6">
+                    <h3 class="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
+                        <i class="fas fa-university text-green-600"></i>
+                        Bank Transfer Details
+                    </h3>
+                    
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <div class="space-y-2">
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-600 font-medium">Bank Name:</span>
+                                <span class="text-gray-900">Standard Bank</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-600 font-medium">Account Name:</span>
+                                <span class="text-gray-900">Praires Africa</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-600 font-medium">Account Number:</span>
+                                <span class="text-gray-900 font-bold">123456789</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-600 font-medium">Branch Code:</span>
+                                <span class="text-gray-900">123456</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-gray-600 font-medium">Swift Code:</span>
+                                <span class="text-gray-900">SBZAZAJJ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-100 border-l-4 border-amber-500 p-4 mb-4">
+                        <p class="text-amber-900 text-sm font-medium">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            Important: Use reference <span id="ref-for-payment" class="font-bold">—</span> when making payment
+                        </p>
+                    </div>
+
+                    <a href="upload-proof.html" class="block w-full bg-green-600 hover:bg-green-700 text-white text-center px-6 py-3 rounded-lg font-medium">
+                        <i class="fas fa-upload mr-2"></i>
+                        Upload Payment Proof
+                    </a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button id="refresh-btn" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-medium">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        Refresh Status
+                    </button>
+                    <a href="packages.html" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 text-center px-6 py-3 rounded-lg font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Back to Packages
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 PrairiesAfrica.Inc All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/263776930966?text=Hi,%20I%20need%20help%20with%20my%20booking" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg z-50 transition-transform hover:scale-110" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+    (function() {
+        const API_BASE_URL = 'https://prairies-backend.onrender.com';
+        
+        // Get booking ID from URL
+        const params = new URLSearchParams(window.location.search);
+        const bookingId = params.get('id') || params.get('booking_id');
+
+        // UI Elements
+        const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        const bookingDetails = document.getElementById('booking-details');
+        const statusBanner = document.getElementById('status-banner');
+        const paymentInstructions = document.getElementById('payment-instructions');
+
+        // Function to format date
+        function formatDate(dateString) {
+            if (!dateString) return 'To be confirmed';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Function to render status banner
+        function renderStatusBanner(status) {
+            const statusConfig = {
+                'pending': {
+                    color: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+                    icon: 'fa-clock',
+                    title: 'Payment Pending',
+                    message: 'Your booking is confirmed. Waiting for payment verification.',
+                    pulse: true
+                },
+                'confirmed': {
+                    color: 'bg-gradient-to-r from-green-500 to-emerald-600',
+                    icon: 'fa-check-circle',
+                    title: 'Payment Confirmed',
+                    message: 'Your payment has been verified. Your booking is confirmed!',
+                    pulse: false
+                },
+                'cancelled': {
+                    color: 'bg-gradient-to-r from-red-500 to-rose-600',
+                    icon: 'fa-times-circle',
+                    title: 'Booking Cancelled',
+                    message: 'This booking has been cancelled.',
+                    pulse: false
+                },
+                'completed': {
+                    color: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+                    icon: 'fa-check-double',
+                    title: 'Completed',
+                    message: 'This booking has been completed. We hope you enjoyed your experience!',
+                    pulse: false
+                }
+            };
+
+            const config = statusConfig[status] || statusConfig['pending'];
+            const pulseClass = config.pulse ? 'pulse-animation' : '';
+
+            statusBanner.innerHTML = `
+                <div class="${config.color} text-white p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-3xl ${pulseClass}">
+                            <i class="fas ${config.icon}"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-2xl font-bold mb-1">${config.title}</h2>
+                            <p class="text-white/90">${config.message}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to load booking details
+        async function loadBookingDetails() {
+            if (!bookingId) {
+                showError('No booking ID provided. Please check your link.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/bookings/${bookingId}/`);
+                
+                if (!response.ok) {
+                    throw new Error('Booking not found');
+                }
+
+                const booking = await response.json();
+                displayBookingDetails(booking);
+                
+            } catch (error) {
+                console.error('Error loading booking:', error);
+                showError('Could not load booking details. Please try again or contact support.');
+            }
+        }
+
+        // Function to display booking details
+        function displayBookingDetails(booking) {
+            // Hide loading, show details
+            loadingState.classList.add('hidden');
+            bookingDetails.classList.remove('hidden');
+
+            // Render status banner
+            renderStatusBanner(booking.status);
+
+            // Fill booking details
+            document.getElementById('ref-num').textContent = booking.reference_number;
+            document.getElementById('package-name').textContent = booking.package_title;
+            document.getElementById('num-people').textContent = booking.number_of_people;
+            document.getElementById('pref-date').textContent = formatDate(booking.preferred_date);
+            document.getElementById('total-amount').textContent = `$${booking.total_amount}`;
+            
+            // Additional activity
+            if (booking.additional_activity_title) {
+                document.getElementById('additional-activity').textContent = 
+                    `${booking.additional_activity_title} ($${booking.additional_activity_price})`;
+            }
+
+            // Customer information
+            document.getElementById('customer-name').textContent = booking.customer?.name || '—';
+            document.getElementById('customer-email').textContent = booking.customer?.email || '—';
+            document.getElementById('customer-phone').textContent = booking.customer?.phone || '—';
+
+            // Show payment instructions if pending
+            if (booking.status === 'pending') {
+                paymentInstructions.classList.remove('hidden');
+                document.getElementById('ref-for-payment').textContent = booking.reference_number;
+            }
+        }
+
+        // Function to show error
+        function showError(message) {
+            loadingState.classList.add('hidden');
+            errorState.classList.remove('hidden');
+            document.getElementById('error-message').textContent = message;
+        }
+
+        // Refresh button handler
+        document.getElementById('refresh-btn')?.addEventListener('click', function() {
+            loadingState.classList.remove('hidden');
+            bookingDetails.classList.add('hidden');
+            errorState.classList.add('hidden');
+            loadBookingDetails();
+        });
+
+        // Auto-refresh every 30 seconds if pending
+        let autoRefreshInterval;
+        function setupAutoRefresh(status) {
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+            }
+            
+            if (status === 'pending') {
+                autoRefreshInterval = setInterval(() => {
+                    console.log('Auto-refreshing booking status...');
+                    loadBookingDetails();
+                }, 30000); // 30 seconds
+            }
+        }
+
+        // Initial load
+        loadBookingDetails();
+    })();
+    </script>
+</body>
+</html>

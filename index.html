@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prairies Africa | Victoria Falls Luxury Travel Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/263776930966?text=Hi,%20I'm%20interested%20in%20planning%20a%20trip%20to%20Victoria%20Falls" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg z-50 transition-transform hover:scale-110" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logo.svg" alt="Prairies Africa logo" class="h-12 w-auto" />
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-amber-600 font-medium">Home</a>
+                <a href="#activities" class="text-gray-700 hover:text-amber-600 font-medium">Activities</a>
+                <a href="#lodges" class="text-gray-700 hover:text-amber-600 font-medium">Lodges</a>
+                <a href="#transport" class="text-gray-700 hover:text-amber-600 font-medium">Transport</a>
+                <a href="#contact" class="text-gray-700 hover:text-amber-600 font-medium">Contact</a>
+                <a href="history.html" class="text-gray-700 hover:text-amber-600 font-medium">History</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- New Hero Section with Background Video -->
+    <section id="home" class="relative h-[90vh] md:h-screen text-white">
+        <div class="hero-video-wrapper">
+            <video id="hero-video-a" class="hero-video" autoplay muted playsinline></video>
+            <video id="hero-video-b" class="hero-video" autoplay muted playsinline></video>
+            <div class="hero-video-overlay"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 h-full flex items-center justify-center text-center">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Experience Victoria Falls</h1>
+                <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8">Where adventure meets wonder at the world's largest curtain of falling water</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button id="open-explore-modal" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105">Explore Now</button>
+                    <button id="open-packages-modal" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Packages</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+            <a href="#activities" class="text-white text-2xl" aria-label="Scroll to activities">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Victoria Falls Activities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover thrilling adventures and unforgettable experiences at one of the Seven Natural Wonders of the World</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Bungee Jumping -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/bungee.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Bungee Jumping</h3>
+                        <p class="text-gray-600 mb-4">Originated in the 1980s as an extreme adventure inspired by traditional land-diving rituals from Vanuatu. The Victoria Falls Bridge jump is one of the highest in the world at 111 meters.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $160</span>
+                            <a href="booking.html?id=bungee&title=Bungee%20Jumping&price=160" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gorge Swing -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/gorgeswing.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Gorge Swing</h3>
+                        <p class="text-gray-600 mb-4">A thrilling pendulum swing that sends you soaring across the Batoka Gorge at speeds up to 140 km/h. This activity combines free fall with the exhilaration of swinging over the Zambezi River.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $95</span>
+                            <a href="booking.html?id=gorge-swing&title=Gorge%20Swing&price=95" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zip Line -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/zipline.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Zip Line</h3>
+                        <p class="text-gray-600 mb-4">Soar like an eagle across the Batoka Gorge on a high-speed cable. This exhilarating ride offers breathtaking views of the river below and the stunning landscape surrounding Victoria Falls.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $75</span>
+                            <a href="booking.html?id=zip-line&title=Zip%20Line&price=75" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flying Fox -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/flyingfox.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Flying Fox</h3>
+                        <p class="text-gray-600 mb-4">Experience the sensation of flight as you glide horizontally across the gorge suspended from a cable. This unique activity lets you take in panoramic views of the Zambezi River.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $55</span>
+                            <a href="booking.html?id=flying-fox&title=Flying%20Fox&price=55" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- White-Water Rafting -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/rafting.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">White-Water Rafting</h3>
+                        <p class="text-gray-600 mb-4">Challenge the mighty Zambezi's legendary rapids, considered some of the best in the world. The river below Victoria Falls features Grade 3 to 5 rapids that provide an unforgettable adventure.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $120</span>
+                            <a href="booking.html?id=white-water-rafting&title=White-Water%20Rafting&price=120" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Helicopter Flight -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/helicopter.png')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Helicopter Flight</h3>
+                        <p class="text-gray-600 mb-4">Known as the "Flight of Angels," this aerial tour was first offered in the 1960s. It provides a breathtaking bird's-eye view of the falls' full 1.7-kilometer width.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $150</span>
+                            <a href="booking.html?id=helicopter-flight&title=Helicopter%20Flight&price=150" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Microlight Flight -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/microlight.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Microlight Flight</h3>
+                        <p class="text-gray-600 mb-4">For a more intimate aerial experience, microlight flights offer an open-air adventure above the falls. These lightweight aircraft provide unparalleled views and the sensation of flying like a bird.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $165</span>
+                            <a href="booking.html?id=microlight-flight&title=Microlight%20Flight&price=165" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Devil's Pool -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/devil.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Devil's Pool</h3>
+                        <p class="text-gray-600 mb-4">This natural rock pool on the edge of Victoria Falls is accessible during low water season (August to January). For over a century, adventurous visitors have swum in this infinity pool-like formation.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $75</span>
+                            <a href="booking.html?id=devils-pool&title=Devil%27s%20Pool&price=75" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bridge Tour -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/bridgetour.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Bridge Tour</h3>
+                        <p class="text-gray-600 mb-4">The Victoria Falls Bridge, completed in 1905, connects Zimbabwe and Zambia. Historical tours explore its engineering marvel and role in developing Southern Africa.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $45</span>
+                            <a href="booking.html?id=bridge-tour&title=Bridge%20Tour&price=45" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Victoria Falls Rainforest Walk -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/rainforestwalk.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Victoria Falls Rainforest Walk</h3>
+                        <p class="text-gray-600 mb-4">The constant spray from Victoria Falls creates a unique rainforest ecosystem on the opposite cliff face. Walking trails through this misty forest provide different vantage points of the falls.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $30</span>
+                            <a href="booking.html?id=rainforest-walk&title=Victoria%20Falls%20Rainforest%20Walk&price=30" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunset Cruise on the Zambezi River -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/sunsetcruise.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sunset Cruise on the Zambezi</h3>
+                        <p class="text-gray-600 mb-4">A tranquil journey along the upper Zambezi River as the sun sets. These cruises offer wildlife viewing opportunities with hippos, crocodiles, and elephants often spotted.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $65</span>
+                            <a href="booking.html?id=sunset-cruise&title=Sunset%20Cruise%20on%20the%20Zambezi&price=65" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canoeing / Kayaking -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/canoeing.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Canoeing / Kayaking</h3>
+                        <p class="text-gray-600 mb-4">Paddle the calm upper stretches of the Zambezi, exploring channels and islands. This peaceful activity allows close encounters with river wildlife and birds.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $85</span>
+                            <a href="booking.html?id=canoeing-kayaking&title=Canoeing%20%2F%20Kayaking&price=85" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Drives -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/gamedriveshwange.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Game Drives</h3>
+                        <p class="text-gray-600 mb-4">Explore Zambezi National Park's diverse ecosystems in open safari vehicles. These drives offer opportunities to spot elephants, buffalo, antelope, and predators.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $70</span>
+                            <a href="booking.html?id=game-drives&title=Game%20Drives&price=70" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Walking Safari -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/walkingsafaris.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Walking Safari</h3>
+                        <p class="text-gray-600 mb-4">Experience the African bush on foot with an armed professional guide. Walking safaris allow you to notice smaller details often missed from vehicles.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $90</span>
+                            <a href="booking.html?id=walking-safari&title=Walking%20Safari&price=90" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horseback Safari -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/horsebackriding.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Horseback Safari</h3>
+                        <p class="text-gray-600 mb-4">Ride through the African wilderness on well-trained horses, approaching wildlife without engine noise. This unique perspective allows closer animal encounters.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $110</span>
+                            <a href="booking.html?id=horseback-safari&title=Horseback%20Safari&price=110" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cultural Village Tour -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/village.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Cultural Village Tour</h3>
+                        <p class="text-gray-600 mb-4">Visit authentic local villages to learn about the traditions and daily life of the Tonga people. These immersive experiences include traditional cooking demonstrations.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $50</span>
+                            <a href="booking.html?id=cultural-village&title=Cultural%20Village%20Tour&price=50" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traditional Dance & Dinner Show -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/simunye.webp')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Traditional Dance & Dinner</h3>
+                        <p class="text-gray-600 mb-4">Enjoy an evening of vibrant performances featuring traditional dances, drumming, and storytelling. These cultural shows are often accompanied by authentic local cuisine.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $60</span>
+                            <a href="booking.html?id=traditional-dance-dinner&title=Traditional%20Dance%20%26%20Dinner&price=60" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Market Shopping -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/localmarketshopping.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Local Market Shopping</h3>
+                        <p class="text-gray-600 mb-4">Browse colorful markets filled with handcrafted souvenirs, from stone sculptures to woven baskets. These markets support local artisans and offer authentic mementos.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">Free Entry</span>
+                            <a href="booking.html?id=local-market-shopping&title=Local%20Market%20Shopping" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Art Galleries & Craft Shops -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/artgalleries.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Art Galleries & Craft Shops</h3>
+                        <p class="text-gray-600 mb-4">Discover Zimbabwe's renowned artistic heritage in local galleries showcasing stone sculpture, paintings, and crafts. The country is famous for its Shona sculpture tradition.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">Free Entry</span>
+                            <a href="booking.html?id=art-galleries-craft-shops&title=Art%20Galleries%20%26%20Craft%20Shops" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High Tea at the Lookout Cafe -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/lookout.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">High Tea at the Lookout Cafe</h3>
+                        <p class="text-gray-600 mb-4">Experience colonial-era elegance at the historic Victoria Falls Hotel, known as the "Grand Old Lady." Since 1904, this luxury hotel has offered high tea with stunning views.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $45</span>
+                            <a href="booking.html?id=high-tea-lookout&title=High%20Tea%20at%20the%20Lookout%20Cafe&price=45" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viewpoints of the Falls -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div id="viewpoint-slider" class="relative h-48 overflow-hidden">
+                        <!-- Slide 1 -->
+                        <div class="vp-slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0" style="background-image: url('images/viewpoint1.jpg')">
+                            <div class="absolute inset-0 bg-black/30 flex items-end p-4">
+                                <div class="text-white">
+                                    <h4 class="font-bold">Main Falls Viewpoint</h4>
+                                    <p class="text-sm">Panoramic view of the Main Falls and spray.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="vp-slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0" style="background-image: url('images/viewpoint2.jpg')">
+                            <div class="absolute inset-0 bg-black/30 flex items-end p-4">
+                                <div class="text-white">
+                                    <h4 class="font-bold">Danger Point</h4>
+                                    <p class="text-sm">Wide-angle view across the gorge.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="vp-slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0" style="background-image: url('images/viewpoint3.jpg')">
+                            <div class="absolute inset-0 bg-black/30 flex items-end p-4">
+                                <div class="text-white">
+                                    <h4 class="font-bold">Spray Time Lookout</h4>
+                                    <p class="text-sm">Best spot for close-up misty photos.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <button id="vp-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full w-9 h-9 flex items-center justify-center z-10">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="vp-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full w-9 h-9 flex items-center justify-center z-10">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Viewpoints of the Falls</h3>
+                        <p class="text-gray-600 mb-4">Sixteen viewpoints along the rainforest walk offer different perspectives. Use the slider to preview a few highlights.</p>
+                        <div class="flex justify-between items-center">
+                            <div id="vp-indicators" class="flex gap-2 items-center">
+                                <button class="w-3 h-3 rounded-full bg-white/50" aria-label="slide-0"></button>
+                                <button class="w-3 h-3 rounded-full bg-white/50" aria-label="slide-1"></button>
+                                <button class="w-3 h-3 rounded-full bg-white/50" aria-label="slide-2"></button>
+                            </div>
+                            <a href="booking.html?id=viewpoints&title=Viewpoints%20of%20the%20Falls" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Get Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zambezi National Park Visit -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/zambezinationalpark.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Zambezi National Park Visit</h3>
+                        <p class="text-gray-600 mb-4">This 56,000-hectare park bordering Victoria Falls protects diverse wildlife along the Zambezi River. Established in 1979, it offers excellent game viewing with species including elephant and lion.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $30</span>
+                            <a href="booking.html?id=zambezi-park&title=Zambezi%20National%20Park%20Visit&price=30" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Livingstone Island Tour -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/livingstoneisland.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Livingstone Island Tour</h3>
+                        <p class="text-gray-600 mb-4">Visit the spot where David Livingstone first saw Victoria Falls in 1855. This guided tour takes you to the island at the very edge of the falls, offering a unique perspective.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $90</span>
+                            <a href="booking.html?id=livingstone-island&title=Livingstone%20Island%20Tour&price=90" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Can't decide? Let us help you create the perfect Victoria Falls itinerary</p>
+                <a href="#contact" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">Contact Us to Plan Your Trip</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Lodges Section -->
+    <section id="lodges" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Premium Accommodation</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Luxury lodges and hotels in Victoria Falls</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/vicfalls.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Victoria Falls Hotel</h3>
+                        <p class="text-gray-600 mb-4">5-star luxury with stunning views of the bridge and gorges. Known as the "Grand Old Lady".</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $450/night</span>
+                            <a href="booking.html?id=victoria-falls-hotel&title=Victoria%20Falls%20Hotel&price=450" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/ilala.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Ilala Lodge</h3>
+                        <p class="text-gray-600 mb-4">Intimate luxury hotel located closest to the Victoria Falls. Exceptional service and dining.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $320/night</span>
+                            <a href="booking.html?id=ilala-lodge&title=Ilala%20Lodge&price=320" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/tongabezi.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Tongabezi Lodge</h3>
+                        <p class="text-gray-600 mb-4">Luxurious riverfront accommodation on the Zambian side with private houses and valets.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $550/night</span>
+                            <a href="booking.html?id=tongabezi-lodge&title=Tongabezi%20Lodge&price=550" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional lodges -->
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/elephantcamp.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">The Elephant Camp</h3>
+                        <p class="text-gray-600 mb-4">Luxury tented camp offering intimate wildlife encounters and stunning views of the Victoria Falls spray.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $480/night</span>
+                            <a href="booking.html?id=the-elephant-camp&title=The%20Elephant%20Camp&price=480" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/stanley.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Stanley & Livingstone Boutique Hotel</h3>
+                        <p class="text-gray-600 mb-4">Elegant colonial-style hotel set on a private game reserve, offering luxury and exclusivity.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $380/night</span>
+                            <a href="booking.html?id=stanley-livingstone&title=Stanley%20%26%20Livingstone%20Boutique%20Hotel&price=380" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('images/matetsi.jpg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Matetsi Victoria Falls</h3>
+                        <p class="text-gray-600 mb-4">Ultra-luxury riverfront lodge with private guided tours and exceptional wildlife experiences.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-600">From $750/night</span>
+                            <a href="booking.html?id=matetsi-victoria-falls&title=Matetsi%20Victoria%20Falls&price=750" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded text-sm font-medium transition">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Enhanced Transport Section -->
+    <section id="transport" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Transport Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Complete transport solutions for your Victoria Falls adventure</p>
+            </div>
+            
+            <!-- Transport Tiers -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Budget Option -->
+                <div class="transport-tier budget bg-white shadow-lg">
+                    <div class="tier-header">
+                        <h3 class="text-2xl font-bold">Budget</h3>
+                        <p class="opacity-90">Economical & Reliable</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="price-tag text-gray-700">From $25</div>
+                        <p class="text-gray-600 mb-6">Perfect for budget-conscious travelers who still want reliable transportation</p>
+                        
+                        <ul class="feature-list mb-6">
+                            <li><i class="fas fa-check"></i> Comfortable sedan or minivan</li>
+                            <li><i class="fas fa-check"></i> Professional local driver</li>
+                            <li><i class="fas fa-check"></i> Airport transfers</li>
+                            <li><i class="fas fa-check"></i> Activity transfers</li>
+                            <li><i class="fas fa-check"></i> Basic insurance</li>
+                            <li><i class="fas fa-times"></i> <span class="text-gray-500">Luxury vehicles</span></li>
+                            <li><i class="fas fa-times"></i> <span class="text-gray-500">Bottled water</span></li>
+                        </ul>
+                        
+                        <a href="booking.html?id=transport-budget&title=Budget%20Transport&price=25" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg text-center block transition duration-300">
+                            Book Budget Transport
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Standard Option -->
+                <div class="transport-tier standard bg-white shadow-lg relative">
+                    <div class="absolute top-0 right-0 mt-4 mr-4 discount-badge">MOST POPULAR</div>
+                    <div class="tier-header">
+                        <h3 class="text-2xl font-bold">Standard</h3>
+                        <p class="opacity-90">Comfort & Value</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="price-tag text-amber-600">From $40</div>
+                        <p class="text-gray-600 mb-6">Great value with enhanced comfort and additional amenities</p>
+                        
+                        <ul class="feature-list mb-6">
+                            <li><i class="fas fa-check"></i> Spacious SUV or minibus</li>
+                            <li><i class="fas fa-check"></i> Professional English-speaking driver</li>
+                            <li><i class="fas fa-check"></i> Airport transfers</li>
+                            <li><i class="fas fa-check"></i> Activity transfers</li>
+                            <li><i class="fas fa-check"></i> Border crossing assistance</li>
+                            <li><i class="fas fa-check"></i> Comprehensive insurance</li>
+                            <li><i class="fas fa-check"></i> Bottled water</li>
+                            <li><i class="fas fa-times"></i> <span class="text-gray-500">Luxury VIP service</span></li>
+                        </ul>
+                        
+                        <a href="booking.html?id=transport-standard&title=Standard%20Transport&price=40" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg text-center block transition duration-300">
+                            Book Standard Transport
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Premium Option -->
+                <div class="transport-tier premium bg-white shadow-lg">
+                    <div class="tier-header">
+                        <h3 class="text-2xl font-bold">Premium</h3>
+                        <p class="opacity-90">Luxury & Convenience</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="price-tag text-blue-700">From $200</div>
+                        <p class="text-gray-600 mb-6">The ultimate in comfort, style, and personalized service</p>
+                        
+                        <ul class="feature-list mb-6">
+                            <li><i class="fas fa-check"></i> Luxury vehicles</li>
+                            <li><i class="fas fa-check"></i> Professional multilingual driver/guide</li>
+                            <li><i class="fas fa-check"></i> Airport VIP meet & greet</li>
+                            <li><i class="fas fa-check"></i> Activity transfers with wait time</li>
+                            <li><i class="fas fa-check"></i> Border crossing with VIP assistance</li>
+                            <li><i class="fas fa-check"></i> Premium insurance coverage</li>
+                            <li><i class="fas fa-check"></i> Complimentary drinks & snacks</li>
+                            <li><i class="fas fa-check"></i> Grand tour of the falls</li>
+                        </ul>
+                        
+                        <a href="booking.html?id=transport-premium&title=Premium%20Transport&price=200" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-lg text-center block transition duration-300">
+                            Book Premium Transport
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Group Discounts -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div class="bg-amber-600 text-white p-6">
+                    <h3 class="text-2xl font-bold text-center">Group Discounts</h3>
+                    <p class="text-center opacity-90 mt-2">Special rates for groups - the larger your group, the more you save!</p>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-4 px-6 text-left">Group Size</th>
+                                <th class="py-4 px-6 text-center">Budget Discount</th>
+                                <th class="py-4 px-6 text-center">Standard Discount</th>
+                                <th class="py-4 px-6 text-center">Premium Discount</th>
+                                <th class="py-4 px-6 text-center">Example Pricing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium">1-2 people</td>
+                                <td class="py-4 px-6 text-center">-</td>
+                                <td class="py-4 px-6 text-center">-</td>
+                                <td class="py-4 px-6 text-center">-</td>
+                                <td class="py-4 px-6 text-center text-gray-600">Standard rates apply</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium">3-5 people</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">10% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">15% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">10% OFF</td>
+                                <td class="py-4 px-6 text-center text-gray-600">Standard: $34/person</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium">6-10 people</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">20% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">25% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">20% OFF</td>
+                                <td class="py-4 px-6 text-center text-gray-600">Standard: $30/person</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium">11-15 people</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">30% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">35% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">30% OFF</td>
+                                <td class="py-4 px-6 text-center text-gray-600">Standard: $26/person</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium">16+ people</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">40% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">45% OFF</td>
+                                <td class="py-4 px-6 text-center text-green-600 font-bold">40% OFF</td>
+                                <td class="py-4 px-6 text-center text-gray-600">Standard: $22/person</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="p-6 bg-amber-50 border-t border-amber-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Group Packages</h3>
+                    <p class="text-gray-600 mb-4">We create tailored transport solutions for large groups, events, and corporate travel. Contact us for a personalized quote.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/263776930966?text=Hi,%20I'm%20interested%20in%20group%20transport%20discounts" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Inquire About Group Discounts
+                        </a>
+                        <a href="tel:+263776930966" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+                            <i class="fas fa-phone mr-2"></i> Call for Custom Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Additional Services</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-plane text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Airport Transfers</span>
+                                <p class="text-gray-600 text-sm">From Victoria Falls International Airport to your accommodation</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shuttle-van text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Activity Transfers</span>
+                                <p class="text-gray-600 text-sm">To and from all Victoria Falls activities and attractions</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-border-all text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Border Crossings</span>
+                                <p class="text-gray-600 text-sm">Between Zimbabwe and Zambia with visa assistance</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hotel text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Hotel Transfers</span>
+                                <p class="text-gray-600 text-sm">Between different accommodations in the Victoria Falls area</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Why Choose Our Transport?</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Fully Licensed & Insured</span>
+                                <p class="text-gray-600 text-sm">All our vehicles and drivers are fully licensed and insured</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Punctual & Reliable</span>
+                                <p class="text-gray-600 text-sm">We pride ourselves on being on time, every time</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-user-tie text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">Professional Drivers</span>
+                                <p class="text-gray-600 text-sm">Experienced, knowledgeable, and friendly local drivers</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-concierge-bell text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-medium">24/7 Support</span>
+                                <p class="text-gray-600 text-sm">Round-the-clock customer service for any transport needs</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-xl max-w-3xl mx-auto">Get in touch to plan your perfect Victoria Falls adventure</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6">Direct Contact</h3>
+                    <div class="space-y-4 text-lg">
+                        <p>
+                            <i class="fab fa-whatsapp mr-3 text-green-400"></i>
+                            <strong>WhatsApp:</strong> +263 77 693 0966
+                        </p>
+                        <p>
+                            <i class="fas fa-phone mr-3 text-amber-400"></i>
+                            <strong>Phone:</strong> +263 77 365 5253
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <strong>Email:</strong> info@prairiesafrica.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/263776930966?text=Hi,%20I'm%20interested%20in%20planning%20a%20trip%20to%20Victoria%20Falls" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+                    </a>
+                    <a href="tel:+263776930966" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="inline-block mb-4">
+                <img src="images/logo.svg" alt="Prairies Africa logo" class="h-12 w-auto" />
+            </div>
+            <p class="mb-2 text-gray-400">Victoria Falls Travel Experts</p>
+            <p class="text-gray-500 text-sm">Specializing in Victoria Falls activities, accommodation, and transport services</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+                <p>&copy; 2025 PrairiesAfrica.Inc All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Explore Now Modal -->
+    <div id="explore-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
+        <div class="bg-white max-w-xl w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div class="p-6 md:p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">Start Your Adventure</h3>
+                    <button id="close-explore-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <p class="text-gray-600 mb-6">
+                    Explore curated multi-day packages across Zimbabwe, Zambia and Botswana. Handpicked experiences,
+                    seamless transfers, and expert guides.
+                </p>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+                    <p class="text-amber-800 font-medium">Featured:</p>
+                    <ul class="text-amber-900 text-sm list-disc list-inside">
+                        <li>Victoria Falls to Chobe Group Tour</li>
+                        <li>Hwange National Park Small Group Tour</li>
+                        <li>Guided Vic Falls Tour with Lunch</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="packages.html" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg text-center transition">
+                        Explore Our Multiple Day Packages
+                    </a>
+                    <a href="#activities" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg text-center transition">
+                        Browse Activities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Packages Modal -->
+    <div id="packages-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
+        <div class="bg-white max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div class="p-6 md:p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">Popular Packages</h3>
+                    <button id="close-packages-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="packages.html#vicfalls-chobe" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Victoria Falls → Chobe Group Tour</p>
+                        <p class="text-amber-700 font-bold">$170</p>
+                    </a>
+                    <a href="packages.html#vicfalls-hwange" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Vic Falls → Hwange Small Group</p>
+                        <p class="text-amber-700 font-bold">$285</p>
+                    </a>
+                    <a href="packages.html#guided-lunch" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Guided Tour + Lunch (6 hrs)</p>
+                        <p class="text-amber-700 font-bold">$220</p>
+                    </a>
+                    <a href="packages.html#five-day" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">5-Day Zim, Zam & Botswana</p>
+                        <p class="text-amber-700 font-bold">$1,200</p>
+                    </a>
+                    <a href="packages.html#heli" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Helicopter Scenic Flight</p>
+                        <p class="text-amber-700 font-bold">from $136</p>
+                    </a>
+                    <a href="packages.html#rhino-walk" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Game Drive + White Rhino Walk</p>
+                        <p class="text-amber-700 font-bold">from $85</p>
+                    </a>
+                    <a href="packages.html#devils-pool" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Devil's Pool & Livingstone Island</p>
+                        <p class="text-amber-700 font-bold">from $199</p>
+                    </a>
+                    <a href="packages.html#dinner-cruise" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Dinner Cruise on the Zambezi</p>
+                        <p class="text-amber-700 font-bold">from $93</p>
+                    </a>
+                    <a href="packages.html#chobe-full" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Full Day Tour to Chobe NP</p>
+                        <p class="text-amber-700 font-bold">from $185</p>
+                    </a>
+                    <a href="packages.html#chobe-small" class="block border rounded-xl p-4 hover:shadow-md transition">
+                        <p class="font-semibold text-gray-800">Chobe Small Group Day Safari</p>
+                        <p class="text-amber-700 font-bold">from $170</p>
+                    </a>
+                </div>
+                <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                    <a href="packages.html" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg text-center transition">
+                        View All Packages
+                    </a>
+                    <a href="https://wa.me/263776930966?text=Hi,%20I'm%20interested%20in%20your%20multi-day%20packages" target="_blank" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg text-center transition">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- History Modal -->
+    <div id="history-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
+        <div class="bg-white max-w-xl w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div class="p-6 md:p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800">History of Victoria Falls</h3>
+                    <button id="close-history-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <p class="text-gray-600 mb-6">
+                    Discover the fascinating past, local legends, and highlights of the mighty Victoria Falls region and its iconic locations—as well as the cultures that have lived here for centuries.
+                </p>
+                <ul class="list-disc ml-4 text-gray-700 mb-6">
+                    <li><strong>Main Falls Story:</strong> The world's largest sheet of falling water, named "Mosi-oa-Tunya" or "The Smoke That Thunders" by locals.</li>
+                    <li><strong>Livingstone Island:</strong> Where explorer David Livingstone first viewed the Falls in 1855.</li>
+                    <li><strong>Devil's Pool:</strong> Natural rock pool perched on the edge, swimmable in low water season.</li>
+                    <li><strong>Victoria Falls Bridge:</strong> 1905 engineering marvel, linking Zimbabwe and Zambia.</li>
+                    <li><strong>Local Culture:</strong> Tonga, Lozi, and Ndebele people, whose crafts and traditions thrive here.</li>
+                    <li><strong>Wildlife:</strong> The rainforest ecosystem and diverse animals supported by the constant spray of the falls.</li>
+                </ul>
+                <p class="text-amber-700 font-semibold">Contact us to arrange guided history tours and more!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
