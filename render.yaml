@@ -3,4 +3,4 @@ services:
     name: prairies-africa-frontend
     env: static
     buildCommand: echo "No build required for static site"
-    rootDir: ./
+    publishDir: ./
