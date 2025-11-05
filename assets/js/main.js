@@ -1,3 +1,6 @@
+// API Configuration - Update this with your deployed backend URL
+const API_BASE_URL = 'https://prairies-africa-backend.onrender.com';
+
 // Smooth scroll for in-page anchors
 document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
