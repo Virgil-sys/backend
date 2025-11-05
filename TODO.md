@@ -1,4 +1,4 @@
-# Deploy Frontend and Backend to Render
+# Deploy Frontend and Backend to Netlify + Railway
 
 ## Tasks
 - [x] Deploy backend to Render using existing render.yaml
@@ -6,11 +6,20 @@
 - [x] Update frontend JavaScript files to use the deployed backend URL
 - [x] Fix render.yaml configuration issues (region, publishDir, staticSiteGenerator, plan, rootDir, buildCommand)
 - [x] Deploy frontend to Render (Blueprint created, publishDir added)
+- [x] Switch to Netlify + Railway (easier deployment)
+- [x] Create netlify.toml for frontend deployment
+- [x] Create railway.json for backend deployment
+- [x] Update API_BASE_URL to Railway backend URL
+- [x] Update CORS settings for Netlify domains
+- [x] Add ignore rule to prevent Netlify rebuilds on backend changes
+- [x] Remove old Vercel and Render config files to avoid confusion
+- [x] Deploy frontend to Netlify (connect to GitHub repo)
+- [ ] Deploy backend to Railway
 - [ ] Test the full deployment
 
 ## Notes
-- Backend render.yaml already exists in backend/ directory
-- Frontend render.yaml created with proper static site configuration
-- API_BASE_URL updated in main.js to point to Render backend
-- CORS settings updated to allow Render frontend domains
-- All changes committed and pushed to GitHub
+- Switched from Render to Netlify + Railway for easier deployment
+- Netlify handles static frontend with automatic deployments
+- Railway provides simple Django deployment with database
+- All configurations created and committed to GitHub
+- Ready for deployment to both platforms
