@@ -3,12 +3,14 @@
 ## Tasks
 - [x] Deploy backend to Render using existing render.yaml
 - [x] Create render.yaml for frontend static site deployment
-- [ ] Update frontend JavaScript files to use the deployed backend URL
-- [ ] Deploy frontend to Render
+- [x] Update frontend JavaScript files to use the deployed backend URL
+- [x] Fix render.yaml configuration issues (region, publishDir, staticSiteGenerator, plan, rootDir, buildCommand)
+- [x] Deploy frontend to Render (Blueprint created, publishDir added)
 - [ ] Test the full deployment
 
 ## Notes
 - Backend render.yaml already exists in backend/ directory
-- Frontend currently uses vercel.json but needs render.yaml for Render deployment
-- Need to ensure images folder and all assets are accessible
-- Update CORS settings if needed
+- Frontend render.yaml created with proper static site configuration
+- API_BASE_URL updated in main.js to point to Render backend
+- CORS settings updated to allow Render frontend domains
+- All changes committed and pushed to GitHub
