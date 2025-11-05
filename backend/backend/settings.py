@@ -24,7 +24,7 @@ DEBUG = os.getenv("DEBUG", "True").lower() in {"1", "true", "yes"}
 
 import dj_database_url
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,.vercel.app,.onrender.com').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,.vercel.app,.onrender.com,.railway.app,.netlify.app').split(',')
 
 
 # Application definition
@@ -211,6 +211,8 @@ CORS_ALLOWED_ORIGINS = [
     'https://www.prairiesafrica.com',
     'https://prairies-africa-frontend.onrender.com',
     'https://www.prairies-africa-frontend.onrender.com',
+    'https://prairies-africa.netlify.app',
+    'https://www.prairies-africa.netlify.app',
     'http://localhost:3000',
 ]
     

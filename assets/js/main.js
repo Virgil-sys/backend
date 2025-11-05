@@ -1,5 +1,5 @@
 // API Configuration - Update this with your deployed backend URL
-const API_BASE_URL = 'https://prairies-africa-backend.onrender.com';
+const API_BASE_URL = 'https://prairies-backend-production.up.railway.app';
 
 // Smooth scroll for in-page anchors
 document.addEventListener('click', (e) => {
