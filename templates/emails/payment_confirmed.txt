@@ -1,0 +1,21 @@
+Dear {{ customer_name }},
+
+Great news! We have successfully received and verified the payment for your booking with Prairies Africa.
+
+Your adventure is officially confirmed!
+
+Here is a summary of your confirmed booking:
+
+- Booking Reference: {{ booking_reference }}
+- Package: {{ package_title }}
+- Number of People: {{ number_of_people }}
+- Preferred Date: {{ preferred_date }}
+- Total Amount Paid: ${{ total_amount }}
+
+We are excited to have you and are working to make your trip unforgettable.
+
+If you have any questions, feel free to reply to this email or contact us on WhatsApp.
+
+Best regards,
+
+The Prairies Africa Team

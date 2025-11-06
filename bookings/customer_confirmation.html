@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #f59e0b 0%, #16a34a 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; }
+        .booking-card { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 5px; text-align: center; }
+        .reference { font-size: 28px; font-weight: bold; color: #f59e0b; letter-spacing: 2px; }
+        .bank-details { background: #f0fdf4; border: 2px solid #16a34a; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .info-row { padding: 8px 0; }
+        .label { font-weight: bold; color: #6b7280; display: inline-block; width: 150px; }
+        .value { color: #111827; }
+        .steps { background: #fef3c7; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .step { display: flex; align-items: start; margin: 15px 0; }
+        .step-number { background: #f59e0b; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; }
+        .footer { background: #f9fafb; padding: 20px; text-align: center; border-radius: 0 0 10px 10px; }
+        .highlight { background: #fef3c7; padding: 3px 8px; border-radius: 3px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0;">🎉 Booking Confirmed!</h1>
+            <p style="margin: 5px 0;">Your adventure with Praires Africa awaits</p>
+        </div>
+        
+        <div class="content">
+            <p>Dear <strong>{{ booking.customer.name }}</strong>,</p>
+            <p>Thank you for booking with Praires Africa! Your booking has been received and is currently <span class="highlight">PENDING PAYMENT CONFIRMATION</span>.</p>
+            
+            <div class="booking-card">
+                <p style="margin: 0; font-size: 14px; color: #92400e;">Your Booking Reference</p>
+                <div class="reference">{{ booking.reference_number }}</div>
+                <p style="margin: 5px 0; font-size: 12px; color: #92400e;">Save this reference number for your records</p>
+            </div>
+            
+            <h3 style="color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px;">Booking Summary</h3>
+            <div class="info-row">
+                <span class="label">Package:</span>
+                <span class="value">{{ booking.package_title }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Number of People:</span>
+                <span class="value">{{ booking.number_of_people }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Preferred Date:</span>
+                <span class="value">{{ booking.preferred_date|default:'To be confirmed' }}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Total Amount:</span>
+                <span class="value" style="font-size: 1.3em; font-weight: bold; color: #f59e0b;">${{ booking.total_amount }}</span>
+            </div>
+            
+            <h3 style="color: #16a34a; border-bottom: 2px solid #16a34a; padding-bottom: 10px; margin-top: 30px;">💳 Bank Transfer Details</h3>
+            <div class="bank-details">
+                <p style="margin-top: 0; font-weight: bold; color: #16a34a;">Please transfer to:</p>
+                <div class="info-row">
+                    <span class="label">Bank Name:</span>
+                    <span class="value">{{ bank_details.NAME }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Account Name:</span>
+                    <span class="value">{{ bank_details.ACCOUNT_NAME }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Account Number:</span>
+                    <span class="value"><strong>{{ bank_details.ACCOUNT_NUMBER }}</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Branch Code:</span>
+                    <span class="value">{{ bank_details.BRANCH_CODE }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Swift Code:</span>
+                    <span class="value">{{ bank_details.SWIFT_CODE }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Amount:</span>
+                    <span class="value" style="font-size: 1.2em; font-weight: bold; color: #16a34a;">${{ booking.total_amount }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Reference:</span>
+                    <span class="value" style="font-weight: bold; color: #f59e0b;">{{ booking.reference_number }}</span>
+                </div>
+                <p style="margin-bottom: 0; font-size: 12px; color: #16a34a; margin-top: 15px;">
+                    ⚠️ <strong>Important:</strong> Please use the reference number above when making your payment.
+                </p>
+            </div>
+            
+            <h3 style="color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px; margin-top: 30px;">📋 Next Steps</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Make Payment</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">Transfer the amount using the bank details above. Include your booking reference: <strong>{{ booking.reference_number }}</strong></span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Upload Proof of Payment</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">After payment, upload your receipt/proof at: <a href="http://prairiesafrica.com/upload-proof.html" style="color: #f59e0b;">Upload Proof</a></span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Wait for Confirmation</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">We'll verify your payment and confirm your booking within 24 hours.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; font-size: 13px; color: #92400e;">
+                    <strong>⏰ Payment Deadline:</strong> {% if booking.payment_deadline %}{{ booking.payment_deadline|date:"l, F d, Y \a\t H:i" }}{% else %}Within 48 hours{% endif %}
+                </p>
+            </div>
+            
+            <p style="margin-top: 30px;">If you have any questions or need assistance, please don't hesitate to contact us:</p>
+            <p style="margin: 5px 0;">📧 Email: info@prairiesafrica.com</p>
+            <p style="margin: 5px 0;">📱 WhatsApp: +263 77 693 0966</p>
+            
+            <p style="margin-top: 30px;">We're excited to have you join us for an unforgettable African adventure!</p>
+            <p><strong>The Praires Africa Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p style="margin: 5px 0; color: #6b7280; font-size: 12px;">
+                This is an automated confirmation email from Praires Africa
+            </p>
+            <p style="margin: 5px 0; color: #6b7280; font-size: 12px;">
+                Booking Reference: {{ booking.reference_number }} | Created: {{ booking.created_at|date:"Y-m-d H:i" }}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
