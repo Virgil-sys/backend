@@ -164,4 +164,18 @@ document.addEventListener('visibilitychange', () => {
     vids.forEach(v => { if (document.hidden) v.pause(); else v.play().catch(()=>{}); });
 });
 
+// Mobile Menu Toggle
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
 
+if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+
+function closeMobileMenu() {
+    if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+    }
+}
