@@ -29,11 +29,23 @@
                 <a href="#contact" class="text-gray-700 hover:text-amber-600 font-medium">Contact</a>
                 <a href="history.html" class="text-gray-700 hover:text-amber-600 font-medium">History</a>
             </div>
-            <button class="md:hidden text-gray-700">
+            <button id="mobile-menu-toggle" class="md:hidden text-gray-700">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-30 bg-white shadow-lg md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">Home</a>
+            <a href="#activities" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">Activities</a>
+            <a href="#lodges" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">Lodges</a>
+            <a href="#transport" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">Transport</a>
+            <a href="#contact" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">Contact</a>
+            <a href="history.html" class="text-gray-700 hover:text-amber-600 font-medium text-xl" onclick="closeMobileMenu()">History</a>
+        </div>
+    </div>
 
     <!-- New Hero Section with Background Video -->
     <section id="home" class="relative h-[90vh] md:h-screen text-white">

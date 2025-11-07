@@ -71,3 +71,13 @@ a { transition: color 0.2s ease, background-color 0.2s ease; }
 .reveal { opacity: 0; transform: translateY(0.75rem); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* Mobile Menu Styles */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+#mobile-menu:not(.hidden) {
+    transform: translateX(0);
+}
+
