@@ -1,5 +1,5 @@
 // API Configuration - Update this with your deployed backend URL
-const API_BASE_URL = 'https://prairies-backend-production.up.railway.app';
+const API_BASE_URL = 'https://wheylike-genie-entangleable.ngrok-free.dev';
 
 // Smooth scroll for in-page anchors
 document.addEventListener('click', (e) => {
@@ -170,12 +170,36 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('open');
     });
 }
 
 function closeMobileMenu() {
     if (mobileMenu) {
-        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
     }
+}
+
+// Testimonial Form Handler
+const testimonialForm = document.getElementById('testimonial-form');
+
+if (testimonialForm) {
+    testimonialForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const testimonialData = {
+            name: formData.get('name'),
+            location: formData.get('location'),
+            message: formData.get('message'),
+            rating: formData.get('rating')
+        };
+
+        // For now, just show a success message
+        // In a real implementation, this would send to your backend
+        alert(`Thank you for your testimonial, ${testimonialData.name}! Your review will be reviewed before being published.`);
+
+        // Reset form
+        this.reset();
+    });
 }

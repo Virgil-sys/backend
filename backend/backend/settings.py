@@ -24,10 +24,16 @@ DEBUG = os.getenv("DEBUG", "True").lower() in {"1", "true", "yes"}
 
 import dj_database_url
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,.onrender.com,.netlify.app').split(',')
+# ALLOWED_HOSTS configuration
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'wheylike-genie-entangleable.ngrok-free.dev',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://prairies-africa.netlify.app",
+    "https://wheylike-genie-entangleable.ngrok-free.dev",
 ]
 
 # Application definition
@@ -217,8 +223,9 @@ else:
     'https://prairies-africa.netlify.app',
     'https://www.prairies-africa.netlify.app',
     'http://localhost:3000',
+    'https://wheylike-genie-entangleable.ngrok-free.dev',
 ]
-    
+
     FRONTEND_URL = os.getenv('FRONTEND_URL')
     if FRONTEND_URL and FRONTEND_URL not in CORS_ALLOWED_ORIGINS:
         CORS_ALLOWED_ORIGINS.append(FRONTEND_URL)
@@ -227,6 +234,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://prairiesafrica.com',
     'https://www.prairiesafrica.com',
     'https://prairies-africa.netlify.app',
+    'https://cruel-towns-work.loca.lt',
+    'https://wheylike-genie-entangleable.ngrok-free.dev',
 ]
 
 # Email configuration (Gmail/Workspace compatible)
